@@ -1,0 +1,25 @@
+const express = require('express');
+const app = express();
+const port = 3000;
+
+// Enable JSON parsing
+app.use(express.json());
+
+app.post('/elevenlabs-webhook', (req, res) => {
+  const now = new Date();
+  const date = now.toLocaleDateString();
+  const time = now.toLocaleTimeString();
+
+  const response = {
+    message: `Today is ${date} and the current time is ${time}.`,
+    iso: now.toISOString(),
+    timestamp: now.getTime(),
+  };
+
+  console.log('Webhook hit:', response);
+  res.status(200).json(response);
+});
+
+app.listen(port, () => {
+  console.log(`Webhook server listening at http://localhost:${port}`);
+});
