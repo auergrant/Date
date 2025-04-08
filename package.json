@@ -1,0 +1,12 @@
+{
+  "name": "elevenlabs-webhook",
+  "version": "1.0.0",
+  "main": "date",
+  "type": "module",
+  "scripts": {
+    "start": "node date"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
